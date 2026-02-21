@@ -10,22 +10,22 @@ long long solve(const string &s){
     string bracketRemovedSTR;
     for(size_t i = 0; i < s.size() ; i++){
         if(s[i] == '('){
-            cout << "here";
+            cout << "here\n";
             long long res = solve(createSubSTR_bracket(&s[i]));
+            cout << createSubSTR_bracket(&s[i]) << endl;
             int bracket_count = 1;
             while(bracket_count != 0){
                 i++;
                 if (s[i] == '(')    bracket_count++;
                 if (s[i] == ')')    bracket_count--;
             }
-            i++;
             string str_res = toString(res);
-            for(size_t j = 0; j < str_res.size(); j++)
-                bracketRemovedSTR.push_back(str_res[j]);
+            bracketRemovedSTR += str_res;
         }else{
             bracketRemovedSTR.push_back(s[i]);
         }
     }
+    cout << bracketRemovedSTR << endl;
     create_simpleSTR(bracketRemovedSTR);
     return calculate_simpleSTR(bracketRemovedSTR);
 }

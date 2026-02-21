@@ -5,7 +5,7 @@
 string createSubSTR_bracket(const char *p){
     string substr;
     int bracket_count = 1;
-    for(size_t i = 1 ; bracket_count == 0 ; i++){
+    for(size_t i = 1 ; !bracket_count == 0 ; i++){
         substr.push_back(p[i]);
         if(p[i + 1] == '(')
             bracket_count++;
