@@ -8,8 +8,9 @@
 
 long long solve(const string &s){
     string bracketRemovedSTR;
-    for(size_t i = 0 , k = 0; i < s.size() ; i++){
+    for(size_t i = 0; i < s.size() ; i++){
         if(s[i] == '('){
+            cout << "here";
             long long res = solve(createSubSTR_bracket(&s[i]));
             int bracket_count = 1;
             while(bracket_count != 0){
@@ -20,9 +21,9 @@ long long solve(const string &s){
             i++;
             string str_res = toString(res);
             for(size_t j = 0; j < str_res.size(); j++)
-                bracketRemovedSTR[k++] = str_res[j];
+                bracketRemovedSTR.push_back(str_res[j]);
         }else{
-            bracketRemovedSTR[k++] = s[i];
+            bracketRemovedSTR.push_back(s[i]);
         }
     }
     create_simpleSTR(bracketRemovedSTR);
